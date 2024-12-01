@@ -30,7 +30,7 @@ const registerHotel = async (req, res) => {
     const hotel = new Hotel({ name, email, password, address, phone, description });
 
     // Step 6: Generate and assign QR code
-    hotel.qrCode = await generateQRCode(`https://digital-tipping.onrender.com/api/hotels/${hotel._id}`);
+    hotel.qrCode = await generateQRCode(`https://digital-tipping.vercel.app/hotels/${hotel._id}`);
 
     // Step 7: Save hotel to the database
     await hotel.save();
