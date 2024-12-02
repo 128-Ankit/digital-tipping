@@ -12,10 +12,15 @@ const login = async (req, res) => {
             return res.status(400).json({ message: "Hotel not found" });
         }
 
+        console.log("Hotel: ", hotel.password);
+
+
         // Check if the password is correct
         const isMatch = await bcrypt.compare(password, hotel.password);
+        console.log("isMatch: ", isMatch, " " + password, " " + hotel.password);
+
         if (!isMatch) {
-            return res.status(400).json({ message: "Invalid credentials" });
+            return res.status(400).json({ message: "Password not matched" });
         }
 
         // Generate a JWT token

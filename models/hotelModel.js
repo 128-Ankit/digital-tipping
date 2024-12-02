@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
 
 const hotelSchema = new mongoose.Schema({
   name: {
@@ -37,14 +36,11 @@ const hotelSchema = new mongoose.Schema({
     type: String,
     required: [true, "Description is required"],
   },
-});
-
-// Pre-save hook to hash the password
-hotelSchema.pre('save', async function (next) {
-  if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 10); // Hash the password before saving
-  }
-  next();
+  image: {
+    type: String,  // Store the relative file path or URL of the hotel image
+  },
+  images: [{ type: String }], // Array to store multiple image file paths
+  bannerImage: { type: String },
 });
 
 const Hotel = mongoose.model('Hotel', hotelSchema);
