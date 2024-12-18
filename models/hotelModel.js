@@ -37,9 +37,9 @@ const hotelSchema = new mongoose.Schema({
     required: [true, "Description is required"],
   },
   image: {
-    type: String,  // Store the relative file path or URL of the hotel image
+    type: String, 
   },
-  images: [{ type: String }], // Array to store multiple image file paths
+  images: [{ type: String }],  
   bannerImage: { type: String },
 });
 

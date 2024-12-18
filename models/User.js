@@ -5,8 +5,8 @@ const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    images: [{ type: String }], // Array to store multiple image file paths
-    bannerImage: { type: String }, // String to store banner image file path
+    images: [{ type: String }],  
+    bannerImage: { type: String },  
 });
 
 // Create a model based on the schema
